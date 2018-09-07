@@ -7,8 +7,8 @@ namespace Abp.Zero.FluentMigrator.Migrations
     {
         public override void Up()
         {
-            Alter.Column("Name").OnTable("AbpUsers").AsString(32).NotNullable();
-            Alter.Column("Surname").OnTable("AbpUsers").AsString(32).NotNullable();
+            Alter.Column("FirstName").OnTable("AbpUsers").AsString(32).NotNullable();
+            Alter.Column("LastName").OnTable("AbpUsers").AsString(32).NotNullable();
             Alter.Column("EmailAddress").OnTable("AbpUsers").AsString(256).NotNullable();
             Alter.Column("EmailConfirmationCode").OnTable("AbpUsers").AsString(128).Nullable();
             Alter.Column("PasswordResetCode").OnTable("AbpUsers").AsString(328).Nullable();

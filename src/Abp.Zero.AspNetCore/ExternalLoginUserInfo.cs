@@ -5,16 +5,16 @@ namespace Abp.Zero.AspNetCore
 {
     public class ExternalLoginUserInfo
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string EmailAddress { get; set; }
 
         public UserLoginInfo LoginInfo { get; set; }
 
         public bool HasAllNonEmpty()
         {
-            return !Name.IsNullOrEmpty() &&
-                   !Surname.IsNullOrEmpty() &&
+            return !FirstName.IsNullOrEmpty() &&
+                   !LastName.IsNullOrEmpty() &&
                    !EmailAddress.IsNullOrEmpty();
         }
     }

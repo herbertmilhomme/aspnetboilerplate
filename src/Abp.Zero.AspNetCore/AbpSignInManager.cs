@@ -316,16 +316,16 @@ namespace Abp.Zero.AspNetCore
             var givennameClaim = claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName);
             if (givennameClaim != null && !givennameClaim.Value.IsNullOrEmpty())
             {
-                userInfo.Name = givennameClaim.Value;
+                userInfo.FirstName = givennameClaim.Value;
             }
 
             var surnameClaim = claims.FirstOrDefault(c => c.Type == ClaimTypes.Surname);
             if (surnameClaim != null && !surnameClaim.Value.IsNullOrEmpty())
             {
-                userInfo.Surname = surnameClaim.Value;
+                userInfo.LastName = surnameClaim.Value;
             }
 
-            if (userInfo.Name == null || userInfo.Surname == null)
+            if (userInfo.FirstName == null || userInfo.LastName == null)
             {
                 var nameClaim = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
                 if (nameClaim != null)
@@ -336,12 +336,12 @@ namespace Abp.Zero.AspNetCore
                         var lastSpaceIndex = nameSurName.LastIndexOf(' ');
                         if (lastSpaceIndex < 1 || lastSpaceIndex > (nameSurName.Length - 2))
                         {
-                            userInfo.Name = userInfo.Surname = nameSurName;
+                            userInfo.FirstName = userInfo.LastName = nameSurName;
                         }
                         else
                         {
-                            userInfo.Name = nameSurName.Substring(0, lastSpaceIndex);
-                            userInfo.Surname = nameSurName.Substring(lastSpaceIndex);
+                            userInfo.FirstName = nameSurName.Substring(0, lastSpaceIndex);
+                            userInfo.LastName = nameSurName.Substring(lastSpaceIndex);
                         }
                     }
                 }
