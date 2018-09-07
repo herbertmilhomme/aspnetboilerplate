@@ -105,8 +105,8 @@ namespace Abp.Zero.Ldap.Authentication
                 user.UserName = userPrincipal.SamAccountName;
             }
             
-            user.Name = userPrincipal.GivenName;
-            user.Surname = userPrincipal.Surname;
+            user.FirstName = userPrincipal.GivenName;
+            user.LastName = userPrincipal.Surname;
             user.EmailAddress = userPrincipal.EmailAddress;
 
             if (userPrincipal.Enabled.HasValue)

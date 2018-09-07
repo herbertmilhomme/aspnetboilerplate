@@ -26,8 +26,8 @@ namespace Abp.Authorization.Users
                 new TUser
                 {
                     UserName = userNameOrEmailAddress,
-                    Name = userNameOrEmailAddress,
-                    Surname = userNameOrEmailAddress,
+                    FirstName = userNameOrEmailAddress,
+                    LastName = userNameOrEmailAddress,
                     EmailAddress = userNameOrEmailAddress,
                     IsEmailConfirmed = true,
                     IsActive = true

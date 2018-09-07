@@ -12,8 +12,8 @@ namespace Abp.Zero.FluentMigrator.Migrations
                 .WithIdAsInt64()
                 .WithTenantIdAsNullable()
                 .WithColumn("UserName").AsString(32).NotNullable()
-                .WithColumn("Name").AsString(30).NotNullable()
-                .WithColumn("Surname").AsString(30).NotNullable()
+                .WithColumn("FirstName").AsString(30).NotNullable()
+                .WithColumn("LastName").AsString(30).NotNullable()
                 .WithColumn("EmailAddress").AsString(100).NotNullable()
                 .WithColumn("IsEmailConfirmed").AsBoolean().NotNullable().WithDefaultValue(false)
                 .WithColumn("EmailConfirmationCode").AsString(16).Nullable()
@@ -39,8 +39,8 @@ namespace Abp.Zero.FluentMigrator.Migrations
                 new
                 {
                     UserName = "admin",
-                    Name = "System",
-                    Surname = "Administrator",
+                    FirstName = "System",
+                    LastName = "Administrator",
                     EmailAddress = "admin@aspnetboilerplate.com",
                     IsEmailConfirmed = true,
                     Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==" //123qwe
@@ -52,8 +52,8 @@ namespace Abp.Zero.FluentMigrator.Migrations
                 {
                     TenantId = 1,
                     UserName = "admin",
-                    Name = "System",
-                    Surname = "Administrator",
+                    FirstName = "System",
+                    LastName = "Administrator",
                     EmailAddress = "admin@aspnetboilerplate.com",
                     IsEmailConfirmed = true,
                     Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==" //123qwe
