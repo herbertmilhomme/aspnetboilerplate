@@ -319,29 +319,29 @@ namespace Abp.Zero.AspNetCore
                 userInfo.FirstName = givennameClaim.Value;
             }
 
-            var surnameClaim = claims.FirstOrDefault(c => c.Type == ClaimTypes.Surname);
-            if (surnameClaim != null && !surnameClaim.Value.IsNullOrEmpty())
+            var lastnameClaim = claims.FirstOrDefault(c => c.Type == ClaimTypes.Surname);
+            if (lastnameClaim != null && !lastnameClaim.Value.IsNullOrEmpty())
             {
-                userInfo.LastName = surnameClaim.Value;
+                userInfo.LastName = lastnameClaim.Value;
             }
 
             if (userInfo.FirstName == null || userInfo.LastName == null)
             {
-                var nameClaim = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
-                if (nameClaim != null)
+                var fullnameClaim = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
+                if (fullnameClaim != null)
                 {
-                    var nameSurName = nameClaim.Value;
-                    if (!nameSurName.IsNullOrEmpty())
+                    var firstnameLastname = fullnameClaim.Value;
+                    if (!firstnameLastname.IsNullOrEmpty())
                     {
-                        var lastSpaceIndex = nameSurName.LastIndexOf(' ');
-                        if (lastSpaceIndex < 1 || lastSpaceIndex > (nameSurName.Length - 2))
+                        var lastSpaceIndex = firstnameLastname.LastIndexOf(' ');
+                        if (lastSpaceIndex < 1 || lastSpaceIndex > (firstnameLastname.Length - 2))
                         {
-                            userInfo.FirstName = userInfo.LastName = nameSurName;
+                            userInfo.FirstName = userInfo.LastName = firstnameLastname;
                         }
                         else
                         {
-                            userInfo.FirstName = nameSurName.Substring(0, lastSpaceIndex);
-                            userInfo.LastName = nameSurName.Substring(lastSpaceIndex);
+                            userInfo.FirstName = firstnameLastname.Substring(0, lastSpaceIndex);
+                            userInfo.LastName = firstnameLastname.Substring(lastSpaceIndex);
                         }
                     }
                 }
